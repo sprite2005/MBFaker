@@ -75,11 +75,11 @@
 
 + (NSDateComponents*)birthdayFromAge:(NSUInteger)fromAge toAge:(NSUInteger)toAge {
     
-    NSUInteger randomNumOfYears = abs(arc4random() % (toAge - fromAge));
+    NSUInteger randomNumOfYears = arc4random() % (toAge - fromAge);
     
-    NSUInteger randomTimeFromBeginningOfYear = abs(arc4random() % (365 * NUM_SECONDS_PER_DAY));
+    NSUInteger randomTimeFromBeginningOfYear = arc4random() % (365 * NUM_SECONDS_PER_DAY);
     
-    NSInteger totalTimeDifference = -randomNumOfYears * 365 * NUM_SECONDS_PER_DAY + randomTimeFromBeginningOfYear;
+    NSInteger totalTimeDifference = (-randomNumOfYears - fromAge) * 365 * NUM_SECONDS_PER_DAY + randomTimeFromBeginningOfYear;
     
     NSDate * beginningOfYear = [self dateAtBeginningOfYear:[NSDate date]];
     
